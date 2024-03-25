@@ -1,0 +1,54 @@
+#Koneksikan Python ke Database tersebut sebagaimana yang telah anda lakukan pada Elemen Kompetensi 1 dimodul kedua ini dengan menyesuaikan kembali nama Database baru yang sudah dibuat.
+import mysql.connector
+
+connection=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="ps2[francisco]"
+)
+
+cursor=connection.cursor()
+
+try:
+    my_query="SELECT*FROM latihan;"
+    cursor.execute(my_query)
+    
+    result=cursor.fetchall()
+    
+    print("\nHasil Kueri:")
+    for row in result:
+        print(row)
+        
+finally:
+    cursor.close()
+    connection.close()
+
+#Lakukan filter data terhadap Kolom Gender, untuk melihat berapa baris data Pria/Wanita (Pilih salah 1).
+import mysql.connector
+
+connection=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="ps2[francisco]"
+)
+
+cursor=connection.cursor()
+
+try:
+    query="SELECT*FROM latihan WHERE Gender = 'Perempuan'"
+    cursor.execute(query)
+    
+    female_data = cursor.fetchall()
+    
+    cursor.close()
+    connection.close()
+    
+    return female_data
+
+female_data = get_female_data()
+
+print("Data Perempuan:")
+for row in female_data:
+    print(row)
