@@ -1,0 +1,23 @@
+data_francisco = read.delim("clipboard")
+View(data_francisco)
+francisco <- data_francisco[data_francisco$tinggi.badan==170,]
+View(data_francisco)
+francisco$tinggi.badan <- ifelse(francisco$tinggi.badan>160, c("tinggi"), c("pendek"))
+View(francisco)
+francisco$jurusan <- ifelse(francisco$tinggi.badan> 160, c("Infor20"))
+View(francisco)
+francisco$Fakultas <- ifelse(francisco$tinggi.badan> 160, c("FTI"))
+View(francisco)
+francisco$Fakultas-NULL
+data_francisco.kolom2dan3 <- data_francisco [,2:3]
+data_francisco.kolom4dan5 <- data_francisco [,4:5]
+data_francisco.kolom2sd5 <- cbind(data_francisco.kolom2dan3, data_francisco.kolom4dan5)
+View(data_francisco.kolom2sd5)
+data_francisco.baris1sd5 <- data_francisco[1:5,]
+data_francisco.baris25sd30 <- data_francisco[25:30,]
+data_francisco.baris1sd30 <- rbind(data_francisco.baris1sd5, data_francisco.baris25sd30)
+View(data_francisco.baris1sd30)
+data_francisco.sort<-data_francisco[order(data_francisco$waktu.perjalanan...menit),]
+View(data_francisco.sort)
+
+
